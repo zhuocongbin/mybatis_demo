@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zcb.demo.mybatis.sqlMapperInterface.AuthorMapper">
-    <select id="getAll" resultType="com.zcb.demo.mybatis.sqlModel.Author">
+    <select id="getAll" resultType="Author">
         SELECT
           author_id AS  aid,
           first_name AS fname,
@@ -12,7 +12,7 @@
         FROM authors;
     </select>
 
-    <select id="getByAid" resultType="com.zcb.demo.mybatis.sqlModel.Author" parameterType="java.lang.Integer">
+    <select id="getByAid" resultType="Author" parameterType="java.lang.Integer">
         SELECT
           author_id AS  aid,
           first_name AS fname,
@@ -28,7 +28,7 @@
         WHERE author_id = #{aid}
     </delete>
 
-    <insert id="insert" parameterType="com.zcb.demo.mybatis.sqlModel.Author"
+    <insert id="insert" parameterType="Author"
         keyProperty="aid" useGeneratedKeys="true">
         INSERT
         INTO authors (first_name, last_name, country)
